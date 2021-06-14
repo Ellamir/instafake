@@ -32,11 +32,11 @@ const getImage = async (token) => {
         const response = await fetch('http://localhost:3000/api/albums', {
             method:'GET',
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token} `
             }
         })
-        const {album} = await response.json()
-        return album
+        const album = await response.json()
+        return album.data
     } catch (err) {
         console.error(`Error: ${err}`);
     }
